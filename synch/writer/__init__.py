@@ -22,7 +22,7 @@ class ClickHouse:
 
     def __init__(self, host: str, user: str, password: str, cluster_name: str = None):
         host, port = host.split(":")
-        self._client = clickhouse_driver.Client(host=host, port=port, password=password, user=user)
+        self._client = clickhouse_driver.Client(host=host, port=port, password=password, user=user, secure=True, verify=False)
         self.cluster_name = cluster_name
 
     def get_count(self, schema: str, table: str):
